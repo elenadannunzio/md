@@ -1,0 +1,63 @@
+body{
+    font-size: 20px;
+    color:  #0f200d;
+    background-color: rgb(69, 136, 60)
+}
+
+#page {
+    width: 90%;
+    margin-top: 20%;
+    margin-bottom: 0%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#about-me{
+        background-color: hsla(0, 0%, 0%, 0.2);
+}
+
+#work {
+    background-color: hsla(0, 0%, 0%, 0.2);
+}
+
+#contatti {
+    background-color: hsl(83, 63%, 79%);
+}
+
+.section {
+    padding: 26px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.galley {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+/* X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap   */
+
+/*  // Small devices (landscape phones, 576px and up)   */
+@media (min-width: 576px) { }
+
+/*  // Medium devices (tablets, 768px and up)   */
+@media (min-width: 768px) { }
+
+/*  // Large devices (desktops, 992px and up)   */
+@media (min-width: 992px) {
+    .galley {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .gallery figure {
+        width: 30%;
+    }
+}
+
+/*  // X-Large devices (large desktops, 1200px and up)  */
+@media (min-width: 1200px) { }
+
+/*  // XX-Large devices (larger desktops, 1400px and up)    */
+@media (min-width: 1400px) { }
