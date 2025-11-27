@@ -29,7 +29,7 @@ body{
     border-radius: 10px;
 }
 
-.galley {
+.gallery {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -47,7 +47,7 @@ body{
 
 /*  // Large devices (desktops, 992px and up)   */
 @media (min-width: 992px) {
-    .galley {
+    .gallery {
         flex-direction: row;
         justify-content: space-between;
     }
