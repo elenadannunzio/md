@@ -389,7 +389,7 @@ body {
 }
 
 
-.image {
+.hero-image {
     background-image: url(images/immagine_es_1.jpg);
     align-items: flex-end;
     height: 70dvh;
@@ -419,7 +419,6 @@ body {
     flex-direction: column;
     column-count: 3;
     column-gap: 25px;
-    padding: 2rem;
 }
 
 .text {
@@ -453,13 +452,13 @@ No media query for `xs` since this is the default in Bootstrap */
             align-items: row;
         }
 
-        .image {
-            image: url(images/immagine_es_1.jpg);
+        .hero-image {
+            background-image: url(images/immagine_es_1.jpg);
             align-items: center;
             height: 100vh;
             width: 100vw;
             background-repeat: no-repeat;
-            background-size: 70dvh;
+            background-size: 70vh;
             display: flex;
             position: relative;
         }
@@ -469,11 +468,10 @@ No media query for `xs` since this is the default in Bootstrap */
             font-size: 1.5rem;
             color: #000000;
             display: flex;
-            align-items: auto;
+            align-items: flex-start;
             justify-content: center;
             flex-direction: column-reverse;
-            margin-left: 107%;
-            margin-bottom: 40dvh;
+           
         }
 
         .info {
@@ -484,8 +482,7 @@ No media query for `xs` since this is the default in Bootstrap */
             flex-direction: column;
             column-count: 3;
             column-gap: 50px;
-            padding-top: 20rem;
-            margin-right: 5rem;
+            margin-top: 20rem;
         }
 
     }
