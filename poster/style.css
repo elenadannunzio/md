@@ -3,6 +3,10 @@ html {
     /* 16px = 1rem */
     font-family: Arial, Helvetica, sans-serif;
 }
+body {
+    margin: 0;
+    padding: 0;
+}
 
 /* 
 CLASSI DI SPACING
@@ -388,6 +392,11 @@ body {
     align-items: row;
 }
 
+.container img {
+    flex: .8;
+    object-fit: cover;
+}
+
 
 .hero-image {
     background-image: url(images/immagine_es_1.jpg);
@@ -407,8 +416,8 @@ body {
     align-items: auto;
     justify-content: center;
     flex-direction: column;
-    margin-bottom: 3dvh;
-    margin-left: 4dvh;
+    margin-bottom: 2rem;
+    margin-left: 3rem;
 }
 
 .info {
@@ -417,8 +426,27 @@ body {
     font-size: 0.5rem;
     text-align: left;
     flex-direction: column;
-    column-count: 3;
-    column-gap: 25px;
+    display: flex;
+    flex: 1;
+    position: relative;
+    top: -20rem;
+}
+
+.info-text {
+    display:flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 0 1rem;
+}
+
+.info-text div {
+    max-width: 100px;
+    width: 100%;
+}
+
+.info-text h2 {
+    font-size: 1.5rem;
 }
 
 .text {
@@ -449,6 +477,7 @@ No media query for `xs` since this is the default in Bootstrap */
         .container {
             display: flex;
             flex-direction: row;
+            /* TODO: */
             align-items: row;
         }
 
@@ -470,8 +499,6 @@ No media query for `xs` since this is the default in Bootstrap */
             display: flex;
             align-items: flex-start;
             justify-content: center;
-            flex-direction: column-reverse;
-           
         }
 
         .info {
@@ -480,11 +507,17 @@ No media query for `xs` since this is the default in Bootstrap */
             font-size: 0.5rem;
             text-align: left;
             flex-direction: column;
-            column-count: 3;
-            column-gap: 50px;
-            margin-top: 20rem;
+            position: initial;
+            top: initial;
         }
 
+        .info-text {
+            margin: 0 3rem;
+        }
+
+        .info-text div {
+            max-width: 220px;
+        }
     }
 
     /* // X-Large devices (large desktops, 1200px and up) */
