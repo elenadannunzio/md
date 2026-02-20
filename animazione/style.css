@@ -129,6 +129,32 @@ No media query for `xs` since this is the default in Bootstrap */
     z-index: 2;
   }
 
+/* Stato normale: la scritta è "spenta" */
+.title h1 {
+    color: #000000; /* Grigio scuro o nero */
+    transition: all 0.3s ease; /* Transizione fluida per l'accensione */
+    cursor: pointer;
+    text-shadow: none;
+}
+
+/* Stato "Acceso": quando il mouse ci passa sopra */
+.title h1:hover {
+    color: #fff; /* Il centro della lettera diventa bianco brillante */
+    
+    /* Effetto Neon: stratificazione di ombre colorate */
+    /* Scegliamo un colore Neon (es. Verde Acqua #00f3ff) */
+    text-shadow: 
+        0 0 7px #fff,        /* Bagliore interno bianco */
+        0 0 10px #fff,       /* Bagliore medio bianco */
+        0 0 21px #ce0000,    /* Inizio colore neon */
+        0 0 42px #ce0000,    /* Diffusione colore neon */
+        0 0 82px #ce0000,    /* Bagliore ampio */
+        0 0 92px #ce0000;    /* Riflesso lontano */
+        
+    /* Opzionale: un leggero ingrandimento per dare profondità */
+    transform: scale(1.02);
+}
+  
   .elemento {
     position: absolute;
     height: 65%;
@@ -190,6 +216,32 @@ No media query for `xs` since this is the default in Bootstrap */
 /* // XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {}
 
+/* Stato normale: la scritta è "spenta" */
+.title h1 {
+    color: #000000; /* Grigio scuro o nero */
+    transition: all 0.3s ease; /* Transizione fluida per l'accensione */
+    cursor: pointer;
+    text-shadow: none;
+}
+
+/* Stato "Acceso": quando il mouse ci passa sopra */
+.title h1:hover {
+    color: #fff; /* Il centro della lettera diventa bianco brillante */
+    
+    /* Effetto Neon: stratificazione di ombre colorate */
+    /* Scegliamo un colore Neon (es. Verde Acqua #00f3ff) */
+    text-shadow: 
+        0 0 7px #fff,        /* Bagliore interno bianco */
+        0 0 10px #fff,       /* Bagliore medio bianco */
+        0 0 21px #ce0000,    /* Inizio colore neon */
+        0 0 42px #ce0000,    /* Diffusione colore neon */
+        0 0 82px #ce0000,    /* Bagliore ampio */
+        0 0 92px #ce0000;    /* Riflesso lontano */
+        
+    /* Opzionale: un leggero ingrandimento per dare profondità */
+    transform: scale(1.02);
+}
+  
 
 
 @keyframes pulse {

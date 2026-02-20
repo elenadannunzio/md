@@ -1,38 +1,73 @@
-html    {
-    font-size: 16px;    */  16px = 1rem */
-}
-
-body  {
-    padding: 1rem;
-}
-
-ul  {
+/* Reset base e font */
+* {
     margin: 0;
     padding: 0;
-    list-style-type: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #000000; /* Sfondo leggermente grigio per stancare meno la vista */
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Intestazione */
+header h1 {
+    font-size: 2.5rem;
+    color: #dadc35;
+    margin-bottom: 0.5rem;
+}
+
+header h2 {
+    font-weight: 300;
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Lista di link */
+ul {
+    list-style: none;
 }
 
 li {
-    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-/* link a riposo */
-a, a:link {
-    color: hsl(0,   100%, 50%);
+/* Stile dei bottoni (Link) */
+a {
+    display: block;
+    background-color: #4b4b4b;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    color: #dadc35;
     text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: all 0.3s ease; /* Rende il cambio colore fluido */
+    border: 1px solid #000000;
 }
 
-/* link visitati */
-a:visited {
-    color: hsl(0, 100%, 30%);
+/* Effetti al passaggio del mouse */
+a:hover, a:focus {
+    background-color: #dadc35;
+    color: rgb(0, 0, 0);
+    transform: translateY(-3px); /* Effetto sollevamento */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
-/* cursore su link o focus su link */
-a:hover, a:focus{
-    color: hsl(0, 100%, 40%);
-}
-
-/* link premuti */
 a:active {
-    color: hsl(0, 100%, 60%);
+    transform: translateY(-1px);
 }
