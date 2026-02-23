@@ -4,39 +4,55 @@ let offsetX = 0;
 let offsetY = 0;
 let startMouseX, startMouseY;
 
-cloud.addEventListener("mousedown", (e) => {
+// Funzione helper per estrarre coordinate (mouse o touch)
+function getEventCoords(e) {
+  if (e.touches && e.touches.length > 0) {
+    return { clientX: e.touches[0].clientX, clientY: e.touches[0].clientY };
+  }
+  return { clientX: e.clientX, clientY: e.clientY };
+}
+
+function startDrag(e) {
+  e.preventDefault();
   const rect = cloud.getBoundingClientRect();
   const scrollbarWidth = cloud.offsetWidth - cloud.clientWidth;
   const resizeHandleSize = 50;
+  const { clientX, clientY } = getEventCoords(e);
 
-  if (e.clientX > rect.right - scrollbarWidth - resizeHandleSize) return;
-  if (e.clientY > rect.bottom - resizeHandleSize) return;
+  if (clientX > rect.right - scrollbarWidth - resizeHandleSize) return;
+  if (clientY > rect.bottom - resizeHandleSize) return;
 
   isDragging = true;
-  startMouseX = e.clientX;
-  startMouseY = e.clientY;
-});
+  startMouseX = clientX;
+  startMouseY = clientY;
+}
 
-document.addEventListener("mousemove", (e) => {
+function onDrag(e) {
   if (!isDragging) return;
+  e.preventDefault();
+  const { clientX, clientY } = getEventCoords(e);
+  const deltaX = clientX - startMouseX;
+  const deltaY = clientY - startMouseY;
+  cloud.style.transform = `translate(calc(-50% + ${offsetX + deltaX}px), calc(-50% + ${offsetY + deltaY}px))`;
+}
 
-  const deltaX = e.clientX - startMouseX;
-  const deltaY = e.clientY - startMouseY;
-
-  cloud.style.transform = `translate(calc(-50% + ${
-    offsetX + deltaX
-  }px), calc(-50% + ${offsetY + deltaY}px))`;
-});
-
-document.addEventListener("mouseup", (e) => {
+function endDrag(e) {
   if (isDragging) {
-    const deltaX = e.clientX - startMouseX;
-    const deltaY = e.clientY - startMouseY;
-    offsetX += deltaX;
-    offsetY += deltaY;
+    const coords = e.changedTouches
+      ? { clientX: e.changedTouches[0].clientX, clientY: e.changedTouches[0].clientY }
+      : { clientX: e.clientX, clientY: e.clientY };
+    offsetX += coords.clientX - startMouseX;
+    offsetY += coords.clientY - startMouseY;
   }
   isDragging = false;
-});
+}
+
+cloud.addEventListener("mousedown", startDrag);
+cloud.addEventListener("touchstart", startDrag, { passive: false });
+document.addEventListener("mousemove", onDrag);
+document.addEventListener("touchmove", onDrag, { passive: false });
+document.addEventListener("mouseup", endDrag);
+document.addEventListener("touchend", endDrag);
 
 const weatherSlider = document.getElementById("weatherSlider");
 const skyBackground = document.querySelector(".sky-background");
@@ -84,7 +100,11 @@ function updateWeather(value) {
 }
 
 weatherSlider.addEventListener("input", (e) => {
-  updateWeather(e.target.value);
+  const value = Number(e.target.value);
+  updateWeather(value);
+
+  // La pioggia inizia a comparire dal 40% dello slider
+  rainIntensity = value < 40 ? 0 : (value - 40) / 60;
 });
 
 updateWeather(0);
@@ -187,7 +207,8 @@ function updateMucca() {
 }
 
 updateMucca();
-// ── PIOGGIA ──────────────────────────────────────────────────────────────────
+
+// PIOGGIA
 
 const canvas = document.createElement("canvas");
 canvas.style.cssText = `
@@ -202,9 +223,11 @@ const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  drops.length = 0; // Reset gocce per evitare glitch (es. rotazione schermo su mobile)
 });
 
 let rainIntensity = 0; // 0 = niente pioggia, 1 = pioggia massima
@@ -261,18 +284,3 @@ function drawRain() {
 }
 
 drawRain();
-
-// Collega l'intensità della pioggia allo slider del meteo
-// Sostituisci il listener esistente dello slider con questo
-weatherSlider.removeEventListener("input", weatherSlider._inputHandler);
-
-weatherSlider._inputHandler = (e) => {
-  const value = Number(e.target.value);
-  updateWeather(value);
-
-  // La pioggia inizia a comparire dal 40% dello slider
-  rainIntensity = value < 40 ? 0 : (value - 40) / 60;
-};
-
-weatherSlider.addEventListener("input", weatherSlider._inputHandler);
-
