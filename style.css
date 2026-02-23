@@ -1,4 +1,3 @@
-/* Reset base e font */
 * {
     margin: 0;
     padding: 0;
@@ -6,8 +5,8 @@
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: #000000; /* Sfondo leggermente grigio per stancare meno la vista */
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background-color: #000000;
     color: #333;
     line-height: 1.6;
     display: flex;
@@ -56,7 +55,7 @@ a {
     font-size: 1.2rem;
     font-weight: 500;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    transition: all 0.3s ease; /* Rende il cambio colore fluido */
+    transition: all 0.3s ease; 
     border: 1px solid #000000;
 }
 
