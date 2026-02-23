@@ -3,10 +3,6 @@ html {
     /* 16px = 1rem */
     font-family: Arial, Helvetica, sans-serif;
 }
-body {
-    margin: 0;
-    padding: 0;
-}
 
 /* 
 CLASSI DI SPACING
@@ -384,21 +380,8 @@ body {
     background-color: #ffffff;
 }
 
+
 .container {
-    width: 100vw;
-    height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    align-items: row;
-}
-
-.container img {
-    flex: .8;
-    object-fit: cover;
-}
-
-
-.hero-image {
     background-image: url(images/immagine_es_1.jpg);
     align-items: flex-end;
     height: 70dvh;
@@ -408,45 +391,31 @@ body {
     position: relative;
 }
 
+
 .title {
-    font-family: 'Helvetica', sans-serif, bold;
+    font-family: 'Helvetica';
     font-size: 1.5rem;
     color: #000000;
     display: flex;
-    align-items: auto;
+    align-items: flex-start;
     justify-content: center;
-    flex-direction: column;
-    margin-bottom: 2rem;
-    margin-left: 3rem;
+    flex-direction: column-reverse;
+    margin-bottom: 3dvh;
+    margin-left: 4dvh;
 }
 
+
 .info {
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Helvetica';
     color: #000000;
     font-size: 0.5rem;
     text-align: left;
     flex-direction: column;
-    display: flex;
-    flex: 1;
-    position: relative;
-    top: -20rem;
-}
-
-.info-text {
-    display:flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin: 0 1rem;
-}
-
-.info-text div {
-    max-width: 100px;
-    width: 100%;
-}
-
-.info-text h2 {
-    font-size: 1.5rem;
+    column-count: 3;
+    column-gap: 25px;
+    margin-bottom: -130px;
+    margin-left: 4dvh;
+    margin-right: 4dvh;
 }
 
 .text {
@@ -454,74 +423,83 @@ body {
     }
 
 
-    /* X-Small devices (portrait phones, less than 576px)
+
+
+/* X-Small devices (portrait phones, less than 576px)
 No media query for `xs` since this is the default in Bootstrap */
 
-    /* // Small devices (landscape phones, 576px and up) */
-    @media (min-width: 576px) {}
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {}
 
-    /* // Medium devices (tablets, 768px and up) */
-    @media (min-width: 768px) {}
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {}
 
-    /* // Large devices (desktops, 992px and up) */
-    @media (min-width: 992px) {
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
 
-        html {
-            font-size: 24px;
-        }
+    .container {
+        flex-direction: row;
+        height: 100vh;
+            align-items: flex-end;
+    background-repeat: no-repeat;
+    background-size: 80dvh;
 
-        .body {
-            background-size: 50%;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: row;
-            /* TODO: */
-            align-items: row;
-        }
-
-        .hero-image {
-            background-image: url(images/immagine_es_1.jpg);
-            align-items: center;
-            height: 100vh;
-            width: 100vw;
-            background-repeat: no-repeat;
-            background-size: 70vh;
-            display: flex;
-            position: relative;
-        }
-
-        .title {
-            font-size: 'Helvetica', sans-serif, bold;
-            font-size: 1.5rem;
-            color: #000000;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-        }
-
-        .info {
-            font-family: 'Helvetica', sans-serif;
-            color: #000000;
-            font-size: 0.5rem;
-            text-align: left;
-            flex-direction: column;
-            position: initial;
-            top: initial;
-        }
-
-        .info-text {
-            margin: 0 3rem;
-        }
-
-        .info-text div {
-            max-width: 220px;
-        }
     }
 
-    /* // X-Large devices (large desktops, 1200px and up) */
-    @media (min-width: 1200px) {}
+    .hero-image {
+        width: 40%;
+        height: 100vh;
+    }
 
-    /* // XX-Large devices (larger desktops, 1400px and up) */
-    @media (min-width: 1400px) {}
+    .content {
+        width: 50%;
+        padding: 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #ffffff;
+    }
+
+    .title {
+        margin-bottom: 4rem;
+    }
+
+    .title h1 {
+        font-size: 5rem;
+        margin-bottom: 2rem;
+    }
+
+    .title h2 {
+        font-size: 5rem;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: row;
+        gap: 3rem;
+                margin-bottom: -14px;
+        margin-right: 4dvh;
+    }
+
+    .info-item {
+        flex: 1;
+    }
+
+    .info-item h3 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .info-item p {
+        font-size: 0.875rem;
+        line-height: 1.6;
+    }
+
+}
+
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {}
