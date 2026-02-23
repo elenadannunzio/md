@@ -146,12 +146,11 @@ No media query for `xs` since this is the default in Bootstrap */
     text-shadow: none;
 }
 
-/* Stato "Acceso": quando il mouse ci passa sopra */
+// Stato "Acceso": quando il mouse ci passa sopra //
 .title h1:hover {
-    color: #fff; /* Il centro della lettera diventa bianco brillante */
+    color: #fff; //Il centro della lettera diventa bianco brillante //
     
-    /* Effetto Neon: stratificazione di ombre colorate */
-    /* Scegliamo un colore Neon (es. Verde Acqua #00f3ff) */
+    //Effetto Neon: stratificazione di ombre colorate//
     text-shadow: 
         0 0 7px #fff,        /* Bagliore interno bianco */
         0 0 10px #fff,       /* Bagliore medio bianco */
@@ -160,7 +159,7 @@ No media query for `xs` since this is the default in Bootstrap */
         0 0 82px #ce0000,    /* Bagliore ampio */
         0 0 92px #ce0000;    /* Riflesso lontano */
         
-    /* Opzionale: un leggero ingrandimento per dare profondità */
+    //leggero ingrandimento per dare profondità //
     transform: scale(1.02);
 }
   
@@ -247,7 +246,7 @@ No media query for `xs` since this is the default in Bootstrap */
         0 0 82px #ce0000,    /* Bagliore ampio */
         0 0 92px #ce0000;    /* Riflesso lontano */
         
-    /* Opzionale: un leggero ingrandimento per dare profondità */
+    // un leggero ingrandimento per dare profondità */
     transform: scale(1.02);
 }
   
